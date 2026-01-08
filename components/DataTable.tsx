@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TicketData } from '../types';
+import { TicketData } from '../types.ts';
 
 interface DataTableProps {
   tickets: TicketData[];
@@ -17,21 +17,16 @@ const DataTable: React.FC<DataTableProps> = ({ tickets, onDelete }) => {
   );
 
   const handleExportToExcel = () => {
-    // Explicitly check for global XLSX from the corrected script tag
     const XLSX = (window as any).XLSX;
     if (!XLSX) {
-        alert("The Excel export module is still loading or failed to initialize. Please refresh or check your internet connection.");
+        alert("The Excel export module is still loading. Please wait a moment.");
         return;
     }
     
-    // Prepare data for export - remove internal UI state if any
     const exportData = tickets.map(({ ...rest }) => rest);
-    
     const worksheet = XLSX.utils.json_to_sheet(exportData);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Incident Records");
-    
-    // Finalize and download
     XLSX.writeFile(workbook, `Service_Desk_Export_${new Date().toISOString().slice(0,10)}.xlsx`);
   };
 

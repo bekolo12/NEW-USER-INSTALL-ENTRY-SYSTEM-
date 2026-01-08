@@ -1,5 +1,5 @@
 import React from 'react';
-import { TicketData } from '../types';
+import { TicketData } from '../types.ts';
 
 interface DashboardProps {
   tickets: TicketData[];

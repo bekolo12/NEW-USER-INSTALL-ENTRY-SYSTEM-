@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
-import { TicketData } from '../types';
-import { TEAMS, STAGES, PRIORITIES, SLA_STATUSES } from '../constants';
+import { TicketData } from '../types.ts';
+import { TEAMS, STAGES, PRIORITIES, SLA_STATUSES } from '../constants.tsx';
 
 interface DataFormProps {
   onSubmit: (data: TicketData) => void;
@@ -29,7 +28,6 @@ const DataForm: React.FC<DataFormProps> = ({ onSubmit, onCancel }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, you'd calculate duration based on createdOn and closeDate here.
     onSubmit({
       ...formData,
       lastUpdatedOn: new Date().toISOString(),
@@ -56,7 +54,6 @@ const DataForm: React.FC<DataFormProps> = ({ onSubmit, onCancel }) => {
       </div>
 
       <form onSubmit={handleSubmit} className="p-8 space-y-8">
-        {/* Section 1: Basic Info */}
         <div>
           <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">Core Information</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -81,7 +78,6 @@ const DataForm: React.FC<DataFormProps> = ({ onSubmit, onCancel }) => {
           </div>
         </div>
 
-        {/* Section 2: Details */}
         <div>
           <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">Engagement Details</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -102,7 +98,6 @@ const DataForm: React.FC<DataFormProps> = ({ onSubmit, onCancel }) => {
           </div>
         </div>
 
-        {/* Section 3: Timeframes */}
         <div>
           <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">Deadlines & Timeframes</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -127,7 +122,6 @@ const DataForm: React.FC<DataFormProps> = ({ onSubmit, onCancel }) => {
           </div>
         </div>
 
-        {/* Section 4: Location & Responsibility */}
         <div>
           <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">Location & Ownership</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

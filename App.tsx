@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { TicketData, ViewType } from './types';
-import Navigation from './components/Navigation';
-import Dashboard from './components/Dashboard';
-import DataForm from './components/DataForm';
-import DataTable from './components/DataTable';
+import { TicketData, ViewType } from './types.ts';
+import Navigation from './components/Navigation.tsx';
+import Dashboard from './components/Dashboard.tsx';
+import DataForm from './components/DataForm.tsx';
+import DataTable from './components/DataTable.tsx';
 
 const App: React.FC = () => {
   const [view, setView] = useState<ViewType>('dashboard');
