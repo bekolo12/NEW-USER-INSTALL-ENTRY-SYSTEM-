@@ -1,0 +1,5 @@
+{
+  "name": "Service Desk Tracker",
+  "description": "A comprehensive data input and management system for helpdesk operations, featuring structured data entry, real-time tracking, and Excel export capabilities.",
+  "requestFramePermissions": []
+}
